@@ -6,7 +6,7 @@ Record the Cursor version, date, endpoint, and sanitized result for each check. 
 
 - [x] `.cursor-plugin/plugin.json` and `mcp.json` parse as JSON.
 - [x] The plugin identifier is `idea.ai`, the display name is `idea.ai`, and the version is `1.0.0`.
-- [x] `assets/logo.svg` is the unmodified square Pegasus SVG used by the app; the manifest references it with a relative path.
+- [x] `assets/logo.svg` is the unmodified orange-background Pegasus SVG used by the app; the manifest references it with a relative path.
 - [x] The root `mcp.json` contains the `idea.ai` server and intended HTTPS URL.
 - [x] No credentials, symlinks outside the package, or paths escaping the package root are present.
 - [x] The original standard MIT `LICENSE` is unchanged.
@@ -22,7 +22,7 @@ Record the Cursor version, date, endpoint, and sanitized result for each check. 
 - [ ] With explicit approval for any AI Coin charge, perform one small generation; confirm an output is returned and accessible.
 - [ ] Reload Cursor and confirm the connection can be re-established.
 
-## Current results
+## Historical new-endpoint results
 
 - Local installation and plugin discovery: passed in Cursor Customize.
 - Configured endpoint: `https://mcp.idea.ai/mcp`.
@@ -39,7 +39,7 @@ Stop a chargeable test on ambiguous failure. Check whether it completed or spent
 
 ## Temporary old-endpoint smoke test
 
-User approved an old-endpoint local test. At the time of this historical test, only the installed copy at `/Users/matiastorreblanca/.cursor/plugins/local/creative-fabrica/mcp.json` used `https://mcp.creativefabrica.com/mcp`; this repository's `mcp.json` remains `https://mcp.idea.ai/mcp`.
+User approved an old-endpoint local test. At the time of this historical test, only the installed copy at `/Users/matiastorreblanca/.cursor/plugins/local/creative-fabrica/mcp.json` used `https://mcp.creativefabrica.com/mcp`; the source package still used `https://mcp.idea.ai/mcp`. The current package deliberately uses the approved old host for testing.
 
 - OAuth authentication: passed; browser reported authorization complete.
 - MCP initialization and discovery: passed; Cursor shows Connected, 7 tools and 2 resources enabled.
@@ -66,14 +66,14 @@ User approved an old-endpoint local test. At the time of this historical test, o
 
 ## Folder-only casing retest
 
-User requested returning the installed folder from `idea-AI` to `idea.ai`. Manifest `displayName: Idea AI` and identifier `idea.ai` were unchanged. Cursor discovery refreshed and the plugin listing and heading changed to `Idea.Ai`. This isolates folder name as the local-title input. Installed folder is currently `/Users/matiastorreblanca/.cursor/plugins/local/idea.ai/`; README instructions for `idea-AI` remain the workaround for displaying Idea AI.
+User requested returning the installed folder from `idea-AI` to `idea.ai`. Manifest `displayName: Idea AI` and identifier `idea.ai` were unchanged. Cursor discovery refreshed and the plugin listing and heading changed to `Idea.Ai`. This isolates folder name as the local-title input. At that time the installed folder was `/Users/matiastorreblanca/.cursor/plugins/local/idea.ai/`. It was later backed up when the personal marketplace installation replaced it.
 
 ## Team-marketplace test branch (2026-10-13)
 
 - Branch: `test/idea-ai-marketplace`; not a public marketplace release.
 - This branch now deliberately configures `https://mcp.creativefabrica.com/mcp` under server key `idea.ai` for the user-approved temporary test. Historical new-host failure and local test results above are preserved, not marketplace results.
 - Plugin manifest `name` and `displayName`: exactly `idea.ai`. Author: Creative Fabrica B.V.; support: hi@idea.ai.
-- Root `.cursor-plugin/marketplace.json` points to the root package with `source: "."`. The official schema accepts a nonempty relative path string; runtime import remains to be checked.
+- Root `.cursor-plugin/marketplace.json` points to the root package with `source: "."`. The official schema accepts a nonempty relative path string; runtime import was subsequently verified in the personal marketplace test below.
 - [ ] Import this branch into the team marketplace.
 - [x] Personal marketplace installation verifies the visible title is exactly `idea.ai`; team rollout is separate.
 - [ ] Verify OAuth sign-in, tool/resource discovery, read-only invocation and reconnect through the marketplace installation.
@@ -92,3 +92,15 @@ User requested returning the installed folder from `idea-AI` to `idea.ai`. Manif
 - Read-only invocation and reconnect through this marketplace installation: not yet independently checked; historical local installation results do not prove those checks here.
 - No generation performed or AI Coin spend authorized. The test still uses the old endpoint; final endpoint remains migration-gated.
 - This is a **personal Import from Disk** test, not team marketplace rollout or public listing.
+
+## Main package and orange-background logo (2026-10-13)
+
+- Prepared package and marketplace catalog promoted to `main`; this is not a Cursor public marketplace submission.
+- Current configured endpoint remains the user-approved temporary `https://mcp.creativefabrica.com/mcp`. Migration to `https://mcp.idea.ai/mcp` remains blocked pending matching OAuth resource metadata and end-to-end retesting.
+- Plugin `name`, `displayName`, and MCP key remain exactly `idea.ai`; author is Creative Fabrica B.V., support is hi@idea.ai.
+- Replaced the dark-background test logo with the app's orange-background Pegasus: `cf-web/apps/studio/public/favicon-production.svg`, copied byte-for-byte to `assets/logo.svg`.
+- Source and bundled SHA-256: `98281baba4430ae4f3533a404c967ec0f86434422662cb152725a8f3d08a0f37`.
+- SVG is 32×32 with an 800×800 viewBox, solid orange `#FF6E10` background and dark `#191108` Pegasus. No SVG modification or raster conversion was performed.
+- Searched Creative Fabrica LFS latest `main` (`456aa6d17f77fe2f0f2ce9824638810af59ffa27`); no matching standalone orange-background logo was found. The verified source is the Studio app asset, not an LFS asset.
+- This asset change was package-validated; the updated icon has not yet been independently checked in Cursor's installed marketplace copy. The separate MCP/provider icon is not changed by replacing the plugin logo.
+- Generation remains untested; no AI Coin spend or public Cursor submission was performed.

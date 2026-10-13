@@ -4,9 +4,9 @@ Connect Cursor to idea.ai's hosted MCP server for AI design and generation tools
 
 ## Status
 
-This `test/idea-ai-marketplace` branch is a temporary team-marketplace connection and branding test. Its configuration uses the previously working `https://mcp.creativefabrica.com/mcp` endpoint with explicit user approval. Local OAuth sign-in, discovery, a read-only operation and reconnect passed with that endpoint; personal marketplace Import from Disk and exact lowercase display-name behavior have now passed. Team dashboard import was not accomplished. Generation remains untested.
+This package is a connection and branding test, now available on `main`. Its configuration uses the previously working `https://mcp.creativefabrica.com/mcp` endpoint with explicit user approval. Local OAuth sign-in, discovery, a read-only operation and reconnect passed with that endpoint; personal marketplace Import from Disk and exact lowercase display-name behavior have now passed. Team dashboard import was not accomplished. Generation remains untested.
 
-The final release endpoint is `https://mcp.idea.ai/mcp`. Its OAuth protected-resource metadata previously advertised the old host, causing Cursor to reject the resource mismatch. Do not bypass that validation. This branch is not the final release package.
+The final release endpoint is `https://mcp.idea.ai/mcp`. Its OAuth protected-resource metadata previously advertised the old host, causing Cursor to reject the resource mismatch. Do not bypass that validation. This is not the final release package.
 
 Marketplace publishing is on hold until the endpoint migration and release checks are complete.
 
@@ -44,13 +44,13 @@ The package includes no API keys, bearer tokens, client secrets, or passwords. D
 
 ## Personal marketplace test (Import from Disk)
 
-Check out branch `test/idea-ai-marketplace` locally. In Cursor Customize, choose **Add Marketplace → Import from Disk** and select the repository folder containing `.cursor-plugin/marketplace.json`. Search for `idea.ai` in Marketplace and choose **Add idea.ai**.
+Clone this repository and check out `main` locally. In Cursor Customize, choose **Add Marketplace → Import from Disk** and select the repository folder containing `.cursor-plugin/marketplace.json`. Search for `idea.ai` in Marketplace and choose **Add idea.ai**.
 
 This route was verified: the personal marketplace imported, the installed plugin detail heading showed exactly **idea.ai**, and the MCP authenticated with 7 tools and 2 resources enabled. The direct local-plugin copy was moved outside Cursor's discovery folder to avoid duplicate connectors. This is a personal marketplace installation, not a team dashboard import or public marketplace submission.
 
-The attempted GitHub import did not use the branch from a branch-page URL, and its form had no branch/ref selector. Do not assume pasting this branch's GitHub URL selects its contents. The available team dashboard had no Add control, so team import was not accomplished. Import from Disk uses the locally checked-out branch instead.
+The earlier GitHub import could not select the test branch: its form had no branch/ref selector. The package and catalog are now on `main`, so that branch-selection limitation no longer applies. A GitHub-backed import has not yet been retested. The available team dashboard had no Add control, so team import was not accomplished. Import from Disk uses the local checkout.
 
-The repository-root `.cursor-plugin/marketplace.json` lists the single root plugin (`source: "."`), whose runtime resolution passed in this test. The GitHub repository and test branch are public. The final new endpoint and paid generation remain unverified through this installation.
+The repository-root `.cursor-plugin/marketplace.json` lists the single root plugin (`source: "."`), whose runtime resolution passed in this test. The GitHub repository is public; a push to `main` is not a Cursor public marketplace submission. The final new endpoint and paid generation remain unverified through this installation.
 
 ## Use
 
@@ -61,7 +61,7 @@ Start with discovery rather than generation. Before requesting a generated desig
 ## Troubleshooting
 
 - **Plugin absent:** verify the directory layout, including the hidden manifest. Reload Cursor and confirm your organization's policy permits local import.
-- **Connection unavailable:** this test branch deliberately uses the old host. Verify the configured URL and authentication status; final-release migration to `https://mcp.idea.ai/mcp` remains a separate check.
+- **Connection unavailable:** this package deliberately uses the old host. Verify the configured URL and authentication status; final-release migration to `https://mcp.idea.ai/mcp` remains a separate check.
 - **Sign-in fails:** retry through Cursor's authentication UI. Report the error without sharing tokens, cookies, authorization codes, or account secrets.
 - **No tools after sign-in:** inspect Cursor's MCP status and sanitized logs. A reachable endpoint alone does not prove successful MCP initialization.
 - **Generation rejected:** check account eligibility, credits, and the server error. Do not automatically retry a potentially chargeable operation.
