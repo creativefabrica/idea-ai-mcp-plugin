@@ -34,7 +34,6 @@ idea.ai/
 │   └── logo.svg
 ├── mcp.json
 ├── README.md
-├── TESTING.md
 └── LICENSE
 ```
 
@@ -56,7 +55,7 @@ The repository-root `.cursor-plugin/marketplace.json` lists the single root plug
 
 Once the connection is authenticated and tools are discovered, ask Cursor to list the idea.ai tools available for your account. Tool availability and capabilities come from the hosted service, not from this plugin.
 
-Start with discovery rather than generation. Before requesting a generated design, review the selected tool, its inputs, and possible AI Coin charges. See [TESTING.md](TESTING.md) for the smoke-test sequence.
+Start with discovery rather than generation. Before requesting a generated design, review the selected tool, its inputs, and possible AI Coin charges.
 
 ## Troubleshooting
 
@@ -80,7 +79,7 @@ The plugin configuration and documentation use the standard [MIT license](LICENS
 
 Before marketplace submission:
 
-- Complete endpoint migration and the [local smoke tests](TESTING.md).
+- Complete endpoint migration and retest OAuth sign-in, tool discovery, a read-only operation, and reconnect in Cursor.
 - Confirm the support contact and official logo redistribution permissions.
 - Have an authorized company representative review and accept Cursor's publisher terms, including compatibility with AI Coin billing.
 - Confirm marketplace reviewers can authenticate and test the service.
