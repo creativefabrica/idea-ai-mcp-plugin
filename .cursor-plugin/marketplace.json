@@ -1,0 +1,17 @@
+{
+  "name": "idea-ai-test-marketplace",
+  "owner": {
+    "name": "Creative Fabrica B.V.",
+    "email": "hi@idea.ai"
+  },
+  "metadata": {
+    "description": "idea.ai team marketplace connection and branding test; not a public marketplace release."
+  },
+  "plugins": [
+    {
+      "name": "idea.ai",
+      "source": ".",
+      "description": "Connect Cursor to idea.ai through the temporary Creative Fabrica MCP test endpoint."
+    }
+  ]
+}

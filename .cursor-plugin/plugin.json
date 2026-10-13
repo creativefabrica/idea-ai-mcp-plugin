@@ -1,0 +1,20 @@
+{
+  "name": "idea.ai",
+  "version": "1.0.0",
+  "description": "Connect Cursor to idea.ai's hosted MCP server for AI design and generation tools.",
+  "author": {
+    "name": "Creative Fabrica B.V.",
+    "email": "hi@idea.ai"
+  },
+  "homepage": "https://www.idea.ai/mcp",
+  "repository": "https://github.com/creativefabrica/studio-mcp-plugin",
+  "license": "MIT",
+  "keywords": [
+    "idea-ai",
+    "mcp",
+    "design",
+    "generation"
+  ],
+  "displayName": "idea.ai",
+  "logo": "assets/logo.svg"
+}
