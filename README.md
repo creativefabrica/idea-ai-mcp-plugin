@@ -4,7 +4,7 @@ Connect Cursor to idea.ai's hosted MCP server for AI design and generation tools
 
 ## Status
 
-This `test/idea-ai-marketplace` branch is a temporary team-marketplace connection and branding test. Its configuration uses the previously working `https://mcp.creativefabrica.com/mcp` endpoint with explicit user approval. Local OAuth sign-in, discovery, a read-only operation and reconnect passed with that endpoint; team-marketplace import and exact lowercase display-name behavior have not yet been verified. Generation remains untested.
+This `test/idea-ai-marketplace` branch is a temporary team-marketplace connection and branding test. Its configuration uses the previously working `https://mcp.creativefabrica.com/mcp` endpoint with explicit user approval. Local OAuth sign-in, discovery, a read-only operation and reconnect passed with that endpoint; personal marketplace Import from Disk and exact lowercase display-name behavior have now passed. Team dashboard import was not accomplished. Generation remains untested.
 
 The final release endpoint is `https://mcp.idea.ai/mcp`. Its OAuth protected-resource metadata previously advertised the old host, causing Cursor to reject the resource mismatch. Do not bypass that validation. This branch is not the final release package.
 
@@ -21,7 +21,7 @@ Marketplace publishing is on hold until the endpoint migration and release check
 
 ## Install locally
 
-Copy this package into `~/.cursor/plugins/local/idea.ai/`, including the hidden `.cursor-plugin` directory. The manifest identifier, `displayName`, and MCP key are `idea.ai`. The local-plugin UI currently title-cases the folder name to **Idea.Ai** despite the lowercase display name. The team-marketplace test below checks the alternative installation path; exact casing is not yet verified there. Copy the package contents rather than nesting the repository inside another directory. Do not link to files outside Cursor's local-plugin directory.
+Copy this package into `~/.cursor/plugins/local/idea.ai/`, including the hidden `.cursor-plugin` directory. The manifest identifier, `displayName`, and MCP key are `idea.ai`. The local-plugin UI currently title-cases the folder name to **Idea.Ai** despite the lowercase display name. The personal marketplace Import from Disk test below verifies the alternative installation path preserves the exact lowercase title. Copy the package contents rather than nesting the repository inside another directory. Do not link to files outside Cursor's local-plugin directory.
 
 The installed layout should be:
 
@@ -42,11 +42,15 @@ Run **Developer: Reload Window** in Cursor, open **Customize**, and check that t
 
 The package includes no API keys, bearer tokens, client secrets, or passwords. Do not add credentials to these files or commit them to Git. Complete authentication in Cursor's browser flow instead.
 
-## Team marketplace test
+## Personal marketplace test (Import from Disk)
 
-Import `https://github.com/creativefabrica/studio-mcp-plugin` through Cursor Dashboard → Plugins & MCPs → Add Marketplace → Import from Repo, selecting branch `test/idea-ai-marketplace`. The repository-root `.cursor-plugin/marketplace.json` lists the single root plugin (`source: "."`). Do not import `main` for this test.
+Check out branch `test/idea-ai-marketplace` locally. In Cursor Customize, choose **Add Marketplace → Import from Disk** and select the repository folder containing `.cursor-plugin/marketplace.json`. Search for `idea.ai` in Marketplace and choose **Add idea.ai**.
 
-Install from Customize and verify the title is exactly **idea.ai**, the Pegasus plugin logo appears, and MCP authentication/discovery work. Keep the existing local test installation until the marketplace version is confirmed working; ensure only one instance of the connector is active when testing. A successful import is not public marketplace submission. The GitHub repository and this branch are public even though distribution is through a team marketplace.
+This route was verified: the personal marketplace imported, the installed plugin detail heading showed exactly **idea.ai**, and the MCP authenticated with 7 tools and 2 resources enabled. The direct local-plugin copy was moved outside Cursor's discovery folder to avoid duplicate connectors. This is a personal marketplace installation, not a team dashboard import or public marketplace submission.
+
+The attempted GitHub import did not use the branch from a branch-page URL, and its form had no branch/ref selector. Do not assume pasting this branch's GitHub URL selects its contents. The available team dashboard had no Add control, so team import was not accomplished. Import from Disk uses the locally checked-out branch instead.
+
+The repository-root `.cursor-plugin/marketplace.json` lists the single root plugin (`source: "."`), whose runtime resolution passed in this test. The GitHub repository and test branch are public. The final new endpoint and paid generation remain unverified through this installation.
 
 ## Use
 

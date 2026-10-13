@@ -75,7 +75,20 @@ User requested returning the installed folder from `idea-AI` to `idea.ai`. Manif
 - Plugin manifest `name` and `displayName`: exactly `idea.ai`. Author: Creative Fabrica B.V.; support: hi@idea.ai.
 - Root `.cursor-plugin/marketplace.json` points to the root package with `source: "."`. The official schema accepts a nonempty relative path string; runtime import remains to be checked.
 - [ ] Import this branch into the team marketplace.
-- [ ] Install and verify the visible title is exactly `idea.ai` and Pegasus logo is shown.
+- [x] Personal marketplace installation verifies the visible title is exactly `idea.ai`; team rollout is separate.
 - [ ] Verify OAuth sign-in, tool/resource discovery, read-only invocation and reconnect through the marketplace installation.
 - [ ] Retest final new endpoint after matching OAuth metadata is deployed.
 - No generation or AI Coin spend is included in this test authorization.
+
+## Personal marketplace import results (2026-10-13)
+
+- GitHub branch-page import did not select the test branch; the remote import form exposed no branch/ref control. The available team dashboard had no Add control. Team dashboard import is **not accomplished**.
+- [x] Native Cursor **Add Marketplace → Import from Disk**, selecting this checked-out test repository, imported the personal marketplace catalog.
+- [x] Root catalog `source: "."` resolved the root plugin at runtime.
+- [x] Marketplace search `idea` returned `idea.ai`; **Add idea.ai** installed it.
+- [x] Installed detail heading is exactly **idea.ai**, not **Idea.Ai**.
+- [x] MCP authentication/discovery shows 7 tools and 2 resources enabled through this installation.
+- The former direct-local copy at `~/.cursor/plugins/local/idea.ai` was moved to `/Users/matiastorreblanca/Documents/Codex/2026-10-13/he/work/direct-local-plugin-backup` to avoid duplication.
+- Read-only invocation and reconnect through this marketplace installation: not yet independently checked; historical local installation results do not prove those checks here.
+- No generation performed or AI Coin spend authorized. The test still uses the old endpoint; final endpoint remains migration-gated.
+- This is a **personal Import from Disk** test, not team marketplace rollout or public listing.
