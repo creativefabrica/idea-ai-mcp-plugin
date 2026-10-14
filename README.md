@@ -71,7 +71,7 @@ Prompts and tool arguments submitted through MCP are sent to the hosted service.
 
 - [Privacy policy](https://www.idea.ai/p/privacy-policy)
 - [Service terms](https://www.idea.ai/p/terms-of-service)
-- [Plugin repository](https://github.com/creativefabrica/idea-mcp-plugin)
+- [Plugin repository](https://github.com/creativefabrica/idea-ai-mcp-plugin)
 
 ## License and release checks
 
