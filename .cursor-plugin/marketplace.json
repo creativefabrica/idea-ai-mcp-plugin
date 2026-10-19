@@ -1,17 +1,17 @@
 {
-  "name": "idea-ai-test-marketplace",
+  "name": "idea-ai-marketplace",
   "owner": {
     "name": "Creative Fabrica B.V.",
     "email": "hi@idea.ai"
   },
   "metadata": {
-    "description": "idea.ai team marketplace connection and branding test; not a public marketplace release."
+    "description": "idea.ai plugins for Cursor."
   },
   "plugins": [
     {
-      "name": "idea.ai",
+      "name": "idea-ai",
       "source": ".",
-      "description": "Connect Cursor to idea.ai through the temporary Creative Fabrica MCP test endpoint."
+      "description": "Generate and edit images, video, music, voice-over and 3D with leading AI models through idea.ai's hosted MCP server, billed to your idea.ai coins."
     }
   ]
 }
