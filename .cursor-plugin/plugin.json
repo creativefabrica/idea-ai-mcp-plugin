@@ -1,7 +1,7 @@
 {
-  "name": "idea.ai",
+  "name": "idea-ai",
   "version": "1.0.0",
-  "description": "Connect Cursor to idea.ai's hosted MCP server for AI design and generation tools.",
+  "description": "Generate and edit images, video, music, voice-over and 3D with leading AI models through idea.ai's hosted MCP server, billed to your idea.ai coins.",
   "author": {
     "name": "Creative Fabrica B.V.",
     "email": "hi@idea.ai"
